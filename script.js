@@ -179,7 +179,7 @@
     } else {
       statusTextEl.textContent = `Player ${state.currentPlayer} to move`;
       boardPromptEl.textContent =
-        state.targetBoard === null ? "Target board: any open board" : "";
+        state.targetBoard === null ? "Target board: any open board" : "\u00a0";
     }
 
     boardRefs.forEach((ref, boardIndex) => {
