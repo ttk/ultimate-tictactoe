@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Tic Tac Toe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <h1>Ultimate Tic Tac Toe</h1>
+      <p class="tagline">Vanilla HTML, CSS, and JavaScript. Master the micro to conquer the macro.</p>
+    </header>
+
+    <section class="status-bar">
+      <div id="statusText" class="status primary">Player X to move</div>
+      <div id="boardPrompt" class="status secondary">Target board: any open board</div>
+      <div id="messageArea" class="status message" aria-live="polite"></div>
+    </section>
+
+    <section class="board-shell">
+      <div id="macroBoard" class="macro-board" aria-label="Ultimate Tic Tac Toe board"></div>
+    </section>
+
+    <div class="controls">
+      <button id="resetBtn" type="button">Restart Game</button>
+    </div>
+
+    <footer class="footnote">Rule: your move sends your opponent to the micro board matching the cell you played. Closed target boards free the next move.</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
