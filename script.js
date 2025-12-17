@@ -58,9 +58,9 @@
       boardEl.className = "micro-board";
       boardEl.dataset.board = String(b);
 
-      const badge = document.createElement("div");
-      badge.className = "board-badge";
-      boardEl.appendChild(badge);
+      const overlay = document.createElement("div");
+      overlay.className = "board-overlay";
+      boardEl.appendChild(overlay);
 
       const cells = [];
       for (let c = 0; c < 9; c++) {
@@ -75,7 +75,7 @@
       }
 
       container.appendChild(boardEl);
-      refs.push({ boardEl, badge, cells });
+      refs.push({ boardEl, overlay, cells });
     }
 
     return refs;
@@ -179,9 +179,7 @@
     } else {
       statusTextEl.textContent = `Player ${state.currentPlayer} to move`;
       boardPromptEl.textContent =
-        state.targetBoard === null
-          ? "Target board: any open board"
-          : `Target board: board ${state.targetBoard + 1}`;
+        state.targetBoard === null ? "Target board: any open board" : "";
     }
 
     boardRefs.forEach((ref, boardIndex) => {
@@ -193,15 +191,17 @@
       ref.boardEl.classList.toggle("won-o", status === "O");
       ref.boardEl.classList.toggle("drawn", status === "draw");
 
-      if (status === "open") {
-        ref.badge.textContent = `Board ${boardIndex + 1}`;
-        ref.badge.style.color = "var(--muted)";
+      ref.overlay.textContent = "";
+      ref.overlay.className = "board-overlay";
+      if (status === "X") {
+        ref.overlay.textContent = "X";
+        ref.overlay.classList.add("winner-x");
+      } else if (status === "O") {
+        ref.overlay.textContent = "O";
+        ref.overlay.classList.add("winner-o");
       } else if (status === "draw") {
-        ref.badge.textContent = "Draw";
-        ref.badge.style.color = "var(--muted)";
-      } else {
-        ref.badge.textContent = `${status} won`;
-        ref.badge.style.color = status === "X" ? "var(--accent-x)" : "var(--accent-o)";
+        ref.overlay.textContent = "DRAW";
+        ref.overlay.classList.add("draw-state");
       }
 
       ref.cells.forEach((cellEl, cellIndex) => {

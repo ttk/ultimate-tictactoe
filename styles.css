@@ -118,17 +118,31 @@ body {
   background: linear-gradient(135deg, rgba(148, 163, 184, 0.14), rgba(11, 19, 36, 0.9));
 }
 
-.board-badge {
+.board-overlay {
   position: absolute;
-  top: 8px;
-  left: 8px;
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--muted);
-  font-size: 0.8rem;
-  font-weight: 700;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: clamp(4rem, 12vw, 7rem);
+  color: rgba(255, 255, 255, 0.1);
+  letter-spacing: 2px;
   pointer-events: none;
+  text-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  line-height: 1;
+}
+
+.board-overlay.winner-x {
+  color: rgba(242, 95, 92, 0.22);
+}
+
+.board-overlay.winner-o {
+  color: rgba(79, 157, 255, 0.28);
+}
+
+.board-overlay.draw-state {
+  color: rgba(148, 163, 184, 0.35);
+  font-size: clamp(1.4rem, 4.5vw, 2.2rem);
 }
 
 .cell {
