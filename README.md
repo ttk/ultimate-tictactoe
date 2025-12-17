@@ -2,6 +2,8 @@
 
 A colorful, browser-based take on Ultimate Tic Tac Toe where each move sends your opponent to the matching micro board. Built with vanilla HTML/CSS/JS—no build step required.
 
+[Live Demo](https://ttk.github.io/ultimate-tictactoe/).
+
 ## Quick start
 - Open `index.html` directly in a modern browser; everything is static.
 - Optional: serve locally for cleaner CSP/caching behavior (e.g. `python -m http.server 8000` then visit http://localhost:8000).
@@ -30,3 +32,4 @@ A colorful, browser-based take on Ultimate Tic Tac Toe where each move sends you
 ## Development tips
 - Edit the static files and refresh—no bundler needed.
 - For tweaks, start in `styles.css` for look and `script.js` for rules/logic.
+
